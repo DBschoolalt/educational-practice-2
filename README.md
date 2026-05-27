@@ -54,3 +54,88 @@ npm test
 ```
 
 Alternatively you can just open the `test.bat` file.
+
+# API
+
+## Types
+
+### Product
+
+Type that specifies product information
+
+`id: number` - indetification number of the product, different products should not have same ID
+
+`name: string` - name of the product
+
+`price: number` - price of the product
+
+`amount: number` - amount of the product, can only be 1 when present in cart
+
+### Cart
+
+Type that specifies cart information
+
+`items: Product[]` - list of products in the cart
+
+### Customer
+
+Type that specifies customer information
+
+`id: number` - indetification number of the customer, different customers should not have same ID
+
+`name: string` - name of the customer
+
+`cart: Cart` - shopping cart of the customer
+
+## Classes
+
+### Product Manager
+
+class for managing product information
+
+`load(data: Product[]): void` - loads given data
+
+`find(id: number): number` - returns index of item with given id
+
+`get(id: number): number` - returns item with given id
+
+`add(product: Product): void` - add an item to data
+
+`change_price(id: number, price: number): void` - change price of item with given id
+
+`change_name(id: number, name: string): void` - change name of item with given id
+
+`change_amount(id: number, amount: number): void` - change amount of item with given id
+
+`remove(id: number): void` - remove item with given id
+
+`get_all(): product[]` - returns list of all items
+
+### Customer Manager
+
+class for managing customer and cart information
+
+`load(data: Customer[]): void` - loads given data
+
+`find(id: number): number` - returns index of item with given id
+
+`get(id: number): number` - returns item with given id
+
+`add(customer: Customer): void` - add an item to data
+
+`change_name(id: number, name: string): void` - change name of item with given id
+
+`remove(id: number): void` - remove item with given id
+
+`get_all(): Customer[]` - returns list of all items
+
+`add_to_cart(id: number, item: Product): void` - adds given product to cart of customer with given id
+
+`remove_from_cart(id: number, product_id: number): void` - removes first product with given product_id from cart of customer with given id
+
+`clear_cart(id: number): void` - remove all items from cart of customer with given id
+
+`get_cart_items(id: number): Product[]` - returns list of all items from cart of customer with given id
+
+`get_cart_price(id: number): number` - returns price sum of all times in cart of customer with given id
+
