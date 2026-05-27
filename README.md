@@ -139,3 +139,19 @@ class for managing customer and cart information
 
 `get_cart_price(id: number): number` - returns price sum of all times in cart of customer with given id
 
+### Product Data
+
+class for managing persistent data of products, data is saved and read from data/productdata.json
+
+`read(): Product[]` - returns all product data from saved
+
+`write(data: Product[]): void` - saves given data to saved product data
+
+### Customer Data
+
+class for managing persistent data of customers, data is saved and read from data/customerdata.json
+
+`read(): Customer[]` - returns all customer data from saved
+
+`write(data: Customer[]): void` - saves given data to saved customer data
+
